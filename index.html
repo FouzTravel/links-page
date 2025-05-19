@@ -1,16 +1,60 @@
-<div style="position: relative; display: inline-block; max-width: 100%; text-align: center;">
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>خريطة تفاعلية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+    }
 
-  <!-- الصورة -->
-  <img src="https://f.top4top.io/p_34254354e1.png" usemap="#image-map" style="width: 100%; max-width: 900px; border-radius: 12px;">
+    .map-container {
+      display: inline-block;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+    }
 
-  <!-- خريطة Google داخل الصورة -->
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d13125.634348974409!2d3.24895!3d34.669636!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQwJzI3LjgiTiAzwrAxNScxMC43IkU!5e0!3m2!1sen!2us!4v1747615430313!5m2!1sen!2sus"
-    style="position: absolute; left: 463px; top: 837px; width: 383px; height: 193px; border: 2px solid white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+    .map-container img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
 
-  <!-- خريطة الصورة -->
+    .map-iframe-wrapper {
+      margin-top: 16px;
+      display: inline-block;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      border: 2px solid white;
+      background: #fff;
+    }
+
+    .map-iframe-wrapper iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+
+    @media (max-width: 600px) {
+      .map-iframe-wrapper iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="map-container">
+  <img src="https://f.top4top.io/p_34254354e1.png" usemap="#image-map" alt="خريطة روابط">
+
   <map name="image-map">
     <area target="_top" alt="tel mobilis" title="tel mobilis" href="tel:+213660890251" coords="530,506,786,537" shape="rect">
     <area target="_top" alt="tel djezzy" title="tel djezzy" href="tel:+213774474769" coords="528,547,787,574" shape="rect">
@@ -19,3 +63,22 @@
     <area target="_top" alt="map" title="map" href="https://maps.app.goo.gl/Z2rivAxz7zGvxhP68" coords="569,823,844,756" shape="rect">
   </map>
 </div>
+
+<!-- خريطة Google تحت الصورة -->
+<div class="map-iframe-wrapper">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d13125.634348974409!2d3.24895!3d34.669636!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQwJzI3LjgiTiAzwrAxNScxMC43IkU!5e0!3m2!1sen!2us!4v1747615430313!5m2!1sen!2us"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- سكريبت دعم خرائط الصور -->
+<script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    imageMapResize();
+  });
+</script>
+
+</body>
+</html>
